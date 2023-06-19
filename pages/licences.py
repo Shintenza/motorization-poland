@@ -3,12 +3,14 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import sys
 import os
+import plotly.express as px
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from modules.licences.sex_comparison import get_sex_comparison_module                       # pyright:ignore
 from modules.licences.age_comparison import get_age_comparison_module                       # pyright:ignore
 from modules.licences.region_comparison import get_region_comparison_module                 # pyright:ignore
+from modules.licences.cat_comparison import get_cat_comparison_module                       # pyright:ignore
 
 @st.cache_data
 def load_data():
@@ -26,4 +28,5 @@ plt.rcParams.update({'font.size': 5})
 
 get_sex_comparison_module(df, st, plt)
 get_age_comparison_module(df, st, plt)
+get_cat_comparison_module(df_2022, st, px)
 get_region_comparison_module(df_2022, st, plt)
