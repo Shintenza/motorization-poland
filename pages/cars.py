@@ -3,6 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import os
 import sys
+import plotly.express as px
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
@@ -29,7 +30,7 @@ plt.rcParams.update({'font.size': 5})
 
 get_brands_module(df, st, plt)
 get_brand_by_region_module(df, st, plt)
-get_sources_module(df, st, plt)
+get_sources_module(df, st, px)
 get_registered_stats_module(df, st, plt)
 get_fuel_module(df, st, plt)
 get_age_groups_module(df, st, plt)
