@@ -12,6 +12,7 @@ from modules.cars.registered_stats import get_registered_stats_module   # pyrigh
 from modules.cars.brand_by_region import get_brand_by_region_module     # pyright:ignore
 from modules.cars.fuel import get_fuel_module                           # pyright:ignore
 from modules.cars.age import get_age_module                             # pyright:ignore
+from modules.cars.age_groups import get_age_groups_module               # pyright:ignore
 
 st.title("Analiza zarejestrowanych pojazdów w CEPiK")
 
@@ -31,4 +32,5 @@ get_brand_by_region_module(df, st, plt)
 get_sources_module(df, st, plt)
 get_registered_stats_module(df, st, plt)
 get_fuel_module(df, st, plt)
+get_age_groups_module(df, st, plt)
 get_age_module(df, st, plt)

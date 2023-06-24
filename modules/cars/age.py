@@ -5,9 +5,7 @@ def get_age_module(df, st, plt):
     pd.set_option("display.max_columns", None)
 
     df["Age"] = df["Year"] - df["ProductionYear"]
-    mean_age = df[(df["Source"] == "UŻYW. IMPORT INDYW") | (df["Source"] == 'UŻYW. ZAKUPIONY W KRAJU')]
-    mean_age = mean_age.groupby(["Year", "Region"])["Age"].mean().round().reset_index()
-    mean_age_by_years = mean_age.groupby("Year")["Age"].mean().round().reset_index()
+    mean_age = df.groupby(["Year", "Region"])["Age"].mean().round().reset_index()
 
     region_shape_df = geopandas.read_file("./data/wojewodztwa.shp", encoding="utf-8")
     region_shape_df["JPT_NAZWA_"] = region_shape_df["JPT_NAZWA_"].str.upper()
@@ -31,5 +29,4 @@ def get_age_module(df, st, plt):
         )
 
     ax.set_axis_off()
-    st.pyplot(fig)
-    print(df[(df["Region"] == "PODKARPACKIE") & df["Year"] == 2021])
+    st.pyplot(fig, dpi=300)
